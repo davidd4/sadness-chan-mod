@@ -18,6 +18,6 @@
     }
   ],
   "download": "https://github.com/davidd4/sadness-chan-mod/releases/download/v0.1.0/sadness-chan-mod-v0.1.0.zip",
-  "manifest": "https://raw.githubusercontent.com/davidd4/sadness-chan-mod/master/src/module.json",
+  "manifest": "https://github.com/davidd4/sadness-chan-mod/releases/latest/download/module.json",
   "url": "https://github.com/davidd4/sadness-chan-mod"
 }
