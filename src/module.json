@@ -1,0 +1,22 @@
+{
+  "name": "sadness-chan-mod",
+  "title": "Sadness Chan Mod",
+  "description": "Modification for Sadness Chan statistics output.",
+  "version": "0.1.0",
+  "author": "davidd4",
+  "esmodules": [
+    "sadness-chan-mod.js"
+  ],
+  "styles": [
+    "sadness-chan-mod.css"
+  ],
+  "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.9",
+  "dependencies": [
+    {
+      "name": "sadness-chan"
+    }
+  ],
+  "download": "file:///c:/Stuff/development/foundry/sadness-chan-mod/package/sadness-chan-mod-v0.1.0.zip",
+  "manifest": "file:///c:/Stuff/development/foundry/sadness-chan-mod/src/module.json"
+}

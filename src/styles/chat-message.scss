@@ -1,0 +1,18 @@
+.#{$sadness-module-name}-chat-stats {
+    &-body {
+        &__rolls.#{$module-name}-chat-stats-body__rolls {
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 120px;
+
+        }
+    }
+}
+
+.#{$sadness-module-name}-chat-stats-body__rolls.#{$module-name}-chat-stats-body__rolls .#{$sadness-module-name}-chat-stats-body__rolls-roll {
+    width: 60px;
+}
+
+.#{$sadness-module-name}-chat-stats-body__rolls.calc .#{$sadness-module-name}-chat-stats-body__rolls-roll {
+    width: 100%;
+}
