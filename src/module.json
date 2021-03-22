@@ -17,6 +17,7 @@
       "name": "sadness-chan"
     }
   ],
-  "download": "file:///c:/Stuff/development/foundry/sadness-chan-mod/package/sadness-chan-mod-v0.1.0.zip",
-  "manifest": "file:///c:/Stuff/development/foundry/sadness-chan-mod/src/module.json"
+  "download": "https://github.com/davidd4/sadness-chan-mod/releases/download/v0.1.0/sadness-chan-mod-v0.1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/davidd4/sadness-chan-mod/master/src/module.json",
+  "url": "https://github.com/davidd4/sadness-chan-mod"
 }
