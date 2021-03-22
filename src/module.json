@@ -2,7 +2,7 @@
   "name": "sadness-chan-mod",
   "title": "Sadness Chan Mod",
   "description": "Modification for Sadness Chan statistics output.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "davidd4",
   "esmodules": [
     "sadness-chan-mod.js"
@@ -17,7 +17,7 @@
       "name": "sadness-chan"
     }
   ],
-  "download": "https://github.com/davidd4/sadness-chan-mod/releases/download/v0.1.0/sadness-chan-mod-v0.1.0.zip",
+  "download": "https://github.com/davidd4/sadness-chan-mod/releases/download/v0.1.1/sadness-chan-mod-v0.1.1.zip",
   "manifest": "https://github.com/davidd4/sadness-chan-mod/releases/latest/download/module.json",
   "url": "https://github.com/davidd4/sadness-chan-mod"
 }
