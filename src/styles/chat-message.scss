@@ -4,7 +4,6 @@
             flex-wrap: wrap;
             flex-direction: column;
             height: 120px;
-
         }
     }
 }
@@ -15,4 +14,54 @@
 
 .#{$sadness-module-name}-chat-stats-body__rolls.calc .#{$sadness-module-name}-chat-stats-body__rolls-roll {
     width: 100%;
+}
+
+.#{$module-name}-chat-stats-body__chart {
+    display: block;
+    position: relative;
+    border-collapse: collapse;
+    background: transparent;
+    padding: 0;
+    //margin: 4rem 0 6rem;
+    min-height: 60px;
+    width: 100%;
+
+    & tbody {
+        display: flex;
+        justify-content: space-between;
+        min-height: 60px;
+        width: 100%;
+
+        & tr {
+            display: flex;
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 0 8px;
+            position: relative;
+            width: 100%;
+
+            & td {
+                text-align: right;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: flex-end;
+
+                & span {
+                    display: block;
+                    height: calc(var(--data-set) * 100%);
+                    width: 8px;
+                    background: #357EC7;
+                }
+                
+                & p {
+                    font-size: 90%;
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+    }  
 }

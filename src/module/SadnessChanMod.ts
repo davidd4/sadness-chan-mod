@@ -43,21 +43,46 @@ class SadnessChanMod {
             const rollsClass = `${statsBodyClass}__rolls`;
             const modRollsClass = `${modStatsBodyClass}__rolls`;
             const rollClass = `${rollsClass}-roll`;
+            const modChartClass = `${modStatsBodyClass}__chart`;
+            const modChart2Class = `${modStatsBodyClass}__flex-bars`;
+
+            const calcStats = this._getCalcStats(rolls);
+
             const calcRollDie = () => {
-                const calcStats = this._getCalcStats(rolls);
                 return `<li class="${rollClass}">
                     <span class="${rollClass}-dice avg"><span>${calcStats.average}</span></span>    
                     <span class="${rollClass}-count">avg / ${calcStats.numberOfRolls}</span>    
                 </li>`
             };
 
-            // const deviationRollDie = () => {
-            //     const deviationNumber = this._getDeviation(rolls);
-            //     return `<li class="${rollClass}">
-            //         <span class="${rollClass}-dice dev"><span>${deviationNumber}</span></span>    
-            //         <span class="${rollClass}-count">dev</span>    
-            //     </li>`
-            // };
+            const chart = () => {
+                let chartHtml = `<table class="${modChartClass}"><tbody><tr>`;
+
+                for (let i = 1; i < rolls.length; i++) {
+                    let percentage = this._roundUp((rolls[i] / calcStats.numberOfRolls) * 100);
+                    chartHtml += `<td>
+                        <span data-tooltip="${i}: ${rolls[i]} (${percentage}%)" style="--data-set:${rolls[i]}/${calcStats.highest};"></span>
+                        <!-- <p>${i}</p> -->
+                    </td>`;
+                }
+                
+                chartHtml += `</tr></tbody></table>`;
+
+                return chartHtml;
+            };
+
+            const chart2 = () => {
+                let chartHtml = `<ul class="${modChart2Class}">`;
+
+                for (let i = 1; i < rolls.length; i++) {
+                    let percentage = this._roundUp((rolls[i] / calcStats.numberOfRolls) * 100);
+                    chartHtml += `<li style="--data-set:${rolls[i]}/${calcStats.highest};" data-value="${rolls[i]}" data-label="${i}" title="${i}: ${rolls[i]} (${percentage}%)"></li>`;
+                }
+                
+                chartHtml += `</ul>`;
+
+                return chartHtml;
+            };
 
             message += `<ol class="${rollsClass} ${modRollsClass}">`;
             for (let i = 1; i < rolls.length; i++) {
@@ -70,38 +95,29 @@ class SadnessChanMod {
 
             message += `<ol class="${rollsClass} calc">`;
             message += `${calcRollDie()}`;
-            //message += `${deviationRollDie()}`;
             message += `</ol>`;
+            message += `${chart2()}`;
         }
 
         return message;
     }
 
-    private _getCalcStats(rolls: Array<number>): { numberOfRolls: number; average: number } {
+    private _getCalcStats(rolls: Array<number>): { numberOfRolls: number; average: number; highest: number } {
         let rollsTotal = 0;
         let numberOfRolls = 0;
+        let highest = 0;
         for (let i = 0; i < rolls.length; i++) {
             rollsTotal += i * rolls[i];
             numberOfRolls += rolls[i];
+            highest = Math.max(rolls[i], highest);
         }
         let average = this._roundUp(rollsTotal / numberOfRolls) || 0;
         return {
             numberOfRolls: numberOfRolls,
-            average: average
+            average: average,
+            highest: highest
         };
     }
-
-    // private _getDeviation(rolls: Array<number>): number {
-    //     let avarage = this._getAverage(rolls);
-    //     let deviationsTotal = 0;
-    //     let numberOfRolls = 0;
-    //     for (let i = 1; i < rolls.length; i++) {
-    //         deviationsTotal += rolls[i] * Math.pow(i - avarage, 2);
-    //         numberOfRolls += rolls[i];
-    //     }
-    //     let variance = (deviationsTotal / numberOfRolls) || 0;
-    //     return this._roundUp(Math.sqrt(variance));
-    // }
 
     private _roundUp(nr: number): number {
         return Math.round((nr + Number.EPSILON) * 10) / 10;
